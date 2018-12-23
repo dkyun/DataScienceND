@@ -13285,19 +13285,6 @@ Shape of Calendar dataframe: (8231480, 4)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -14759,7 +14746,53 @@ The following columns should be dropped and not considered furtheras those have 
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">showmissing</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see in the diagram above the main sources for missing data is in the review scores values and the reviews per month columns.</p>
+<p>So my guess is that those listings are pretty new, which means they do not have any reviews yet.</p>
+<p>For this reason movin on I will exclude them, as otherwise, it will make further analysis hard on those values</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dropping all missing values, as the ones dropping have probably no reviews as of yet.</span>
+<span class="n">all_rm</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">all_rm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">all_rm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14787,7 +14820,7 @@ The following columns should be dropped and not considered furtheras those have 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -14912,9 +14945,17 @@ The following columns should be dropped and not considered furtheras those have 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to use the price column for the analysis it needs to be reformattet. Which is done below</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_rm</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
@@ -14976,7 +15017,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -15096,7 +15137,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">showdistribution_advanced</span><span class="p">(</span><span class="n">all_rm</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">groupbin</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">99999</span><span class="p">])</span>
@@ -15131,7 +15172,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Checking the dataframe for the price distrubtion, it became clear that there needs to be some </span>
@@ -15152,9 +15193,17 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the following the boolean values are getting reformatted to state False, or True instead of f and t</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">boolean_feature</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;host_identity_verified&#39;</span><span class="p">,</span> <span class="s1">&#39;instant_bookable&#39;</span><span class="p">,</span> <span class="s1">&#39;host_is_superhost&#39;</span><span class="p">]</span>
@@ -15173,7 +15222,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -15316,9 +15365,17 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the categorical column here dummies are created, to see the effect of the various categories.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_rm</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">Listings</span><span class="p">[</span><span class="s1">&#39;cancellation_policy&#39;</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15335,7 +15392,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -15510,7 +15567,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_rm</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">Listings</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15523,7 +15580,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15539,7 +15596,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -15730,9 +15787,17 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the categorical column here dummies are created, to see the effect of the various categories.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_rm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_rm</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">Listings</span><span class="p">[</span><span class="s1">&#39;neighbourhood_group_cleansed&#39;</span><span class="p">])],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15745,7 +15810,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">all_rm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -15773,7 +15838,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -16036,9 +16101,17 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The amenities column can also be considered a categorical feature, yet the effort needed to use this data is much more compared to the other categorical features. Reason being the data is presented in text form. So in the following, The text is split into unique values and ultimately dummies are created for each amenitiy</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempdf</span> <span class="o">=</span> <span class="n">Listings</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -16060,7 +16133,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
@@ -16697,7 +16770,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The data had some outliers, which I quickly dropped</span>
@@ -16715,7 +16788,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
@@ -17352,12 +17425,10 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_rm</span><span class="p">,</span> <span class="n">amenities_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 
@@ -17376,7 +17447,6 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(22552, 167)
-(16093, 167)
 </pre>
 </div>
 </div>
@@ -17387,7 +17457,60 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># showmissing(features, lower_thresh=0.2)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As the dataframes amenities_df and all_rm were merged again, quite some data was introduced again, that was previously seemed unfit. For this reason I will drop again all misisng columns, to get the same result as previously with the all_rm dataframe</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(16093, 167)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_calendar</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -17406,7 +17529,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[41]:</div>
 
 
 
@@ -18043,7 +18166,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">debugdf</span><span class="p">:</span>
@@ -18088,7 +18211,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -18114,7 +18237,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -18131,7 +18254,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">predicted_train_price</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -18144,7 +18267,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">r2_test</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicted_train_price</span><span class="p">)</span>
@@ -18161,7 +18284,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[45]:</div>
 
 
 
@@ -18178,7 +18301,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicted_train_price</span><span class="p">)</span>
@@ -18195,7 +18318,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[43]:</div>
+    <div class="prompt output_prompt">Out[46]:</div>
 
 
 
@@ -18212,7 +18335,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">root_mse</span> <span class="o">=</span> <span class="n">mse</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
@@ -18229,7 +18352,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[47]:</div>
 
 
 
@@ -18246,7 +18369,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">lm_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">features</span><span class="p">))</span>
@@ -18264,7 +18387,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[45]:</div>
+    <div class="prompt output_prompt">Out[48]:</div>
 
 
 
@@ -18445,7 +18568,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">neighborhoods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Listings</span><span class="p">[</span><span class="s1">&#39;neighbourhood_group_cleansed&#39;</span><span class="p">])</span>
@@ -18460,7 +18583,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">neighborhood_impact</span><span class="p">:</span>
@@ -18503,7 +18626,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -18541,7 +18664,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">amenity_impact</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">coefs</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">unique_amenities</span><span class="p">]</span>
@@ -18559,7 +18682,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[49]:</div>
+    <div class="prompt output_prompt">Out[52]:</div>
 
 
 
@@ -18707,7 +18830,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cleaned</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">amenity_impact</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">8</span> <span class="ow">or</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span><span class="mi">10</span><span class="p">]</span>
@@ -18724,7 +18847,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[50]:</div>
+    <div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -18751,7 +18874,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -18789,7 +18912,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -18836,7 +18959,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Calendar</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -18852,7 +18975,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[56]:</div>
 
 
 
@@ -18930,7 +19053,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Calendar</span><span class="o">.</span><span class="n">shape</span>
@@ -18946,7 +19069,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[54]:</div>
+    <div class="prompt output_prompt">Out[57]:</div>
 
 
 
@@ -18963,7 +19086,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -18981,7 +19104,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfCalendar</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -18997,7 +19120,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[56]:</div>
+    <div class="prompt output_prompt">Out[59]:</div>
 
 
 
@@ -19087,7 +19210,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfCalendar</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfCalendar</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,(</span><span class="s1">&#39;price&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
@@ -19104,7 +19227,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
