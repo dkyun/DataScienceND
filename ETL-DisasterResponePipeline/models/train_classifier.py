@@ -17,6 +17,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 ################
 # Imported from https://github.com/udacity/workspaces-student-support/tree/master/jupyter here, as 
 # my workspace kept closing, before finishing training
+# Snippet begins below the comment
 ################
 
 import signal
@@ -75,9 +76,15 @@ def keep_awake(iterable, delay=DELAY, interval=INTERVAL):
     with active_session(delay, interval): yield from iterable
 
 #############
+# End of snippet
+#############
 
 def load_data(database_filepath):
-    # load data from database
+    """
+    load data from database
+    :param database_filepath: Takes the filepath to the database it should load.
+    :return: Returns X, y and a list of categories.
+    """
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table('DisasterResponseData', engine)
     X = df['message']
@@ -86,6 +93,11 @@ def load_data(database_filepath):
     return X, y, categories
 
 def tokenize(text):
+    """
+    Function taken from the run.py file provided in the workspace
+    :param text: Takes in text
+    :return: Outputs an array of tokens
+    """
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -98,6 +110,10 @@ def tokenize(text):
 
 
 def build_model():
+    """
+    Builds the model using pipeline and gridserach, for optimizing
+    :return:
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -113,11 +129,24 @@ def build_model():
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    # classification_report(y_test, y_pred, target_names=categories)
+    """
+    classification_report(y_test, y_pred, target_names=categories)
+    :param model: Takes in a fitted model
+    :param X_test: Takes in test data X value
+    :param Y_test: Takes in test data Y value
+    :param category_names: Takes in a list of category names
+    :return: Nothing, prints out simply a classification report.
+    """
     y_pred = model.predict(X_test)
-    print(classification_report(Y_test, Y_pred, target_name=category_names))
+    print(classification_report(Y_test, y_pred, target_name=category_names))
 
 def save_model(model, model_filepath):
+    """
+    Saves the model
+    :param model: Takes in the model, which should be saved
+    :param model_filepath: Takes in the filepath, which acts as the name and location for the save.
+    :return: Nothing, as it just saves the file.
+    """
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
@@ -149,6 +178,7 @@ def main():
 
 
 if __name__ == '__main__':
+    # The following addition is necessary in order for the udacity workstation to stay awake while training.
     with active_session():
     # do long-running work here
         main()
