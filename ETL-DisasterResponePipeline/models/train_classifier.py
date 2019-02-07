@@ -2,9 +2,11 @@ import sys
 import pandas as pd
 from sqlalchemy import create_engine
 import nltk
-nltk.download(['wordnet', 'punkt'])
+import re
+nltk.download(['wordnet', 'punkt', 'stopwords'])
 from nltk.tokenize import word_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer
+from nltk.corpus import stopwords
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -92,21 +94,23 @@ def load_data(database_filepath):
     categories = y.columns.values
     return X, y, categories
 
+# Created new tokenize function
 def tokenize(text):
     """
     Function taken from the run.py file provided in the workspace
     :param text: Takes in text
-    :return: Outputs an array of tokens
+    :return: list of tokens
     """
-    tokens = word_tokenize(text)
-    lemmatizer = WordNetLemmatizer()
+    # Normalize text
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
+    # Tokenize text
+    words = word_tokenize(text)
+    # Remove stop words
+    words = [w for w in words if w not in stopwords.words("english")]
+    # Reduce words to their root form
+    lemmed = [WordNetLemmatizer().lemmatize(w) for w in words]
 
-    clean_tokens = []
-    for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
-
-    return clean_tokens
+    return lemmed
 
 
 def build_model():
@@ -138,7 +142,13 @@ def evaluate_model(model, X_test, Y_test, category_names):
     :return: Nothing, prints out simply a classification report.
     """
     y_pred = model.predict(X_test)
-    print(classification_report(Y_test, y_pred, target_name=category_names))
+    # The commented out code was the old solution, got an error where I used target_name, instead of target_names
+    # print(classification_report(Y_test, y_pred, target_names=category_names))
+    print("-------Classification Report-------\n")
+    for i in range(len(category_names)):
+        print("Label:", category_names[i], '\n')
+        print(classification_report(Y_test.loc[:, category_names[i]], y_pred[:, i]))
+        print(11*'-----', '\n')
 
 def save_model(model, model_filepath):
     """
