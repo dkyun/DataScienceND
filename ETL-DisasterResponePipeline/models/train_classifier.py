@@ -7,8 +7,7 @@ nltk.download(['wordnet', 'punkt', 'stopwords'])
 from nltk.tokenize import word_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import stopwords
-
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.multioutput import MultiOutputClassifier
@@ -121,15 +120,15 @@ def build_model():
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
-        ('clf', MultiOutputClassifier(RandomForestClassifier()))])
+        ('clf', MultiOutputClassifier(DecisionTreeClassifier()))])
 
-    # Parameters for GridSearch (simplified due to time challenges :-( )
+    # Parameters for GridSearch
     parameters = {
-        'vect__ngram_range': [(1, 1),(2,2)],
-        'vect__max_features': [2,5,10],
-        'clf__estimator__n_estimators': [25,40,70]}
+        'clf__estimator__min_samples_split': [2, 4, 6],
+        'clf__estimator__max_depth': [2, 3, 4]}
 
     cv = GridSearchCV(pipeline, param_grid=parameters, cv=5, verbose=10)
+
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):

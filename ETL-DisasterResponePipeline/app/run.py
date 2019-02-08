@@ -1,37 +1,48 @@
 import json
 import plotly
 import pandas as pd
-
+import re
+import collections
+import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+nltk.download(['wordnet', 'punkt', 'stopwords'])
 
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
+from plotly.graph_objs import Histogram
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
 
 app = Flask(__name__)
 
+
 def tokenize(text):
-    tokens = word_tokenize(text)
-    lemmatizer = WordNetLemmatizer()
+    """
+    Function taken from the run.py file provided in the workspace
+    :param text: Takes in text
+    :return: list of tokens
+    """
+    # Normalize text
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
+    # Tokenize text
+    words = word_tokenize(text)
+    # Remove stop words
+    words = [w for w in words if w not in stopwords.words("english")]
+    # Reduce words to their root form
+    lemmed = [WordNetLemmatizer().lemmatize(w) for w in words]
 
-    clean_tokens = []
-    for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
-
-    return clean_tokens
+    return lemmed
 
 # load data
 engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql_table('DisasterResponseData', engine)
 
 # load model
-model = joblib.load("../models/mlmodel.pkl")
-
+model = joblib.load("../models/DecisionTree.pkl")
 
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')
@@ -39,12 +50,25 @@ model = joblib.load("../models/mlmodel.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    
+
+    # Word Count and number of tokens
+    total_words = []
+    len_words = []
+    for i in range(1000):
+        words = tokenize(df['message'][i])
+        for i in range(len(words)):
+            total_words.append(words[i])
+            len_words.append(len(words[i]))
+
+    import collections
+    counts = collections.Counter(total_words)
+    sorted(total_words, key=lambda x: (counts[x], x))
+    sorted_by_value = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
+    x, y = zip(*sorted_by_value[:10])  # unpack a list of pairs into two tuples
+
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
@@ -61,6 +85,41 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=x,
+                    y=y
+                )
+            ],
+
+            'layout': {
+                'title': '10 Most used words within the messages',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Words"
+                }
+            }
+        },
+        {
+            'data': [
+                Histogram(
+                    x=len_words
+                )
+            ],
+
+            'layout': {
+                'title': 'Histogram of the number of tokens per message',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Number of Tokens per message"
                 }
             }
         }
